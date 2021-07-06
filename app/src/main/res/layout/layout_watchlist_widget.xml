@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_widget"
+    android:clipChildren="true"
+    android:clipToPadding="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_widget_header" />
+
+    <include
+        android:id="@+id/widget_watchlist_skeleton"
+        layout="@layout/layout_skeleton_light"
+        />
+
+    <ViewStub
+        android:id="@+id/widget_vs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/layout_widget_list"
+        />
+
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.main.view.MainActivity">
+
+
+    <Button
+            android:id="@+id/btn_show_widget_in_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show widget in picker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+            android:id="@+id/btn_hide_widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hide widget in picker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_show_widget_in_picker"/>
+
+    <Button
+            android:id="@+id/btn_add_widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add widget"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_hide_widget"/>
+
+
+    <Button
+            android:id="@+id/btn_create_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set list to widget"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_add_widget"/>
+
+    <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update widget"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_create_list"/>
+
+    <Button
+            android:id="@+id/btn_notify_data_changed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notify data set changed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_update"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
