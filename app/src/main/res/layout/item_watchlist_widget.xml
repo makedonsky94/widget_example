@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/widget_ll_parent"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/widget_ll_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.Widgets"
+        android:orientation="vertical">
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +26,7 @@
                     android:id="@+id/widget_tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#131722"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="14sp"
                     android:text="AAPL"/>
 
@@ -62,6 +63,7 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="none"
                         android:textSize="12sp"
+                        android:textColor="?attr/colorOnPrimary"
                         android:text="11:17"
                 />
             </LinearLayout>
@@ -82,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:textSize="14sp"
-                    android:textColor="#131722"
+                    android:textColor="?attr/colorOnPrimary"
                     android:text="381.91"/>
 
             <TextView
@@ -91,6 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:textSize="12sp"
+                    android:textColor="?attr/colorOnPrimary"
                     android:text="+12.33\u2006 +10.09%"/>
 
         </LinearLayout>
@@ -103,6 +106,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginHorizontal="16dp"
-            android:background="#D1D4DC"/>
+            android:background="?attr/colorPrimaryVariant"/>
 
 </LinearLayout>

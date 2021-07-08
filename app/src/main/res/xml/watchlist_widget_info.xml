@@ -9,5 +9,6 @@
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen"
     android:previewImage="@drawable/widget_preview_no_logo"
-    android:configure="com.tradingview.widgets.presentation.configuration.view.ConfigurationActivity">
+    android:configure="com.tradingview.widgets.presentation.configuration.view.ConfigurationActivity"
+    android:widgetFeatures="reconfigurable">
 </appwidget-provider>

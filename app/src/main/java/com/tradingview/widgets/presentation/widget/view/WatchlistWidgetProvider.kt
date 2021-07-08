@@ -1,11 +1,15 @@
 package com.tradingview.widgets.presentation.widget.view
 
 import android.appwidget.AppWidgetManager
+import android.appwidget.AppWidgetManager.*
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.util.Log
+import android.util.Size
+import android.util.SizeF
 import android.view.View
 import android.widget.RemoteViews
 import com.tradingview.widgets.R
@@ -21,9 +25,25 @@ class WatchlistWidgetProvider : AppWidgetProvider() {
         appWidgetIds.forEach { id ->
             Log.d("TEST", "widget id = $id")
             val remoteViews = RemoteViews(context.packageName, R.layout.layout_watchlist_widget)
+            val options = appWidgetManager.getAppWidgetOptions(id)
+            remoteViews.setViewSizeTextToTitle(context, options)
             appWidgetManager.updateAppWidget(id, remoteViews)
         }
         super.onUpdate(context, appWidgetManager, appWidgetIds)
+    }
+
+    override fun onAppWidgetOptionsChanged(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetId: Int,
+        newOptions: Bundle
+    ) {
+        Log.d("TEST", "onAppWidgetOptionsChanged")
+        Log.d("TEST", "widget id = $appWidgetId")
+        val remoteViews = RemoteViews(context.packageName, R.layout.layout_watchlist_widget)
+        remoteViews.setViewSizeTextToTitle(context, newOptions)
+        appWidgetManager.partiallyUpdateAppWidget(appWidgetId, remoteViews)
+        super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
     }
 
     override fun onReceive(context: Context, intent: Intent) {
@@ -68,4 +88,16 @@ private fun Intent.getWidgetIds(): Array<Int> {
         AppWidgetManager.EXTRA_APPWIDGET_IDS
     ) as? Array<Int>
     return widgetIds ?: arrayOf(AppWidgetManager.INVALID_APPWIDGET_ID)
+}
+
+private fun RemoteViews.setViewSizeTextToTitle(context: Context, options: Bundle) {
+    fun int(paramName: String): Int {
+        return options.getInt(paramName)
+    }
+    val titleString =
+        "[${int(OPTION_APPWIDGET_MAX_WIDTH)}x${int(OPTION_APPWIDGET_MAX_HEIGHT)}]" +
+        " " +
+        "[${int(OPTION_APPWIDGET_MIN_WIDTH)}x${int(OPTION_APPWIDGET_MIN_HEIGHT)}]"
+
+    setTextViewText(R.id.widget_watchlist_name, titleString)
 }
