@@ -1,4 +1,4 @@
-package com.tradingview.widgets.app.service
+package com.tradingview.widgets.app.service.widget
 
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName

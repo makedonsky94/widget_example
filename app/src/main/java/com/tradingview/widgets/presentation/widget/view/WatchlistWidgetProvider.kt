@@ -8,11 +8,10 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.util.Size
-import android.util.SizeF
 import android.view.View
 import android.widget.RemoteViews
 import com.tradingview.widgets.R
+import com.tradingview.widgets.presentation.widget.viewmodel.WatchlistViewModel
 import kotlin.random.Random
 
 class WatchlistWidgetProvider : AppWidgetProvider() {
@@ -25,8 +24,8 @@ class WatchlistWidgetProvider : AppWidgetProvider() {
         appWidgetIds.forEach { id ->
             Log.d("TEST", "widget id = $id")
             val remoteViews = RemoteViews(context.packageName, R.layout.layout_watchlist_widget)
-            val options = appWidgetManager.getAppWidgetOptions(id)
-            remoteViews.setViewSizeTextToTitle(context, options)
+            val watchlistViewModel = WatchlistViewModel(watchlistId = 0)
+            remoteViews.setTextViewText(R.id.widget_watchlist_name, watchlistViewModel.name)
             appWidgetManager.updateAppWidget(id, remoteViews)
         }
         super.onUpdate(context, appWidgetManager, appWidgetIds)
@@ -42,7 +41,7 @@ class WatchlistWidgetProvider : AppWidgetProvider() {
         Log.d("TEST", "widget id = $appWidgetId")
         val remoteViews = RemoteViews(context.packageName, R.layout.layout_watchlist_widget)
         remoteViews.setViewSizeTextToTitle(context, newOptions)
-        appWidgetManager.partiallyUpdateAppWidget(appWidgetId, remoteViews)
+        appWidgetManager.updateAppWidget(appWidgetId, remoteViews)
         super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
     }
 
@@ -60,6 +59,9 @@ class WatchlistWidgetProvider : AppWidgetProvider() {
 
                     val adapterIntent = Intent(context, WatchlistWidgetViewsService::class.java)
                     adapterIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId)
+                    adapterIntent.data = Uri.parse(adapterIntent.toUri(Intent.URI_INTENT_SCHEME))
+
+
                     remoteViews.setRemoteAdapter(R.id.widget_watchlist_lv, adapterIntent)
 
                     widgetManager.updateAppWidget(widgetId, remoteViews)

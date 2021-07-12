@@ -6,7 +6,7 @@ import android.widget.RemoteViewsService
 import com.tradingview.widgets.R
 import com.tradingview.widgets.WidgetsApp
 
-class WatchlistItemsViewsFactory : RemoteViewsService.RemoteViewsFactory {
+class WatchlistItemsViewsFactory(private val widgetId: Int) : RemoteViewsService.RemoteViewsFactory {
 
     private var itemsCache: List<String> = listOf()
 
@@ -14,6 +14,7 @@ class WatchlistItemsViewsFactory : RemoteViewsService.RemoteViewsFactory {
 
     override fun onDataSetChanged() {
         Log.d("TEST", "onDataSetChanged")
+        Log.d("TEST", "WatchlistItemsViewsFactory for widgetId: $widgetId")
     }
 
     override fun onDestroy() = Unit
