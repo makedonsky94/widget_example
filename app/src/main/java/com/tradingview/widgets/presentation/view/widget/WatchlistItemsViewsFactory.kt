@@ -7,7 +7,6 @@ import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import com.tradingview.widgets.WidgetsApp
 import com.tradingview.widgets.model.watchlist.Symbol
-import com.tradingview.widgets.presentation.viewmodel.WidgetsViewModel
 import com.tradingview.widgets.presentation.view.remote.SymbolLoadingView
 import com.tradingview.widgets.presentation.view.remote.SymbolView
 import com.tradingview.widgets.presentation.viewmodel.WatchlistViewModel
@@ -30,8 +29,7 @@ class WatchlistItemsViewsFactory(private val widgetId: Int) : RemoteViewsService
     override fun onCreate() = Unit
 
     override fun onDataSetChanged() {
-        Log.d("TEST", "onDataSetChanged")
-        Log.d("TEST", "WatchlistItemsViewsFactory for widgetId: $widgetId")
+        Log.d("TEST", "onDataSetChanged for widgetId $widgetId")
     }
 
     override fun onDestroy() = Unit
@@ -39,8 +37,7 @@ class WatchlistItemsViewsFactory(private val widgetId: Int) : RemoteViewsService
     override fun getCount(): Int = itemsCache.count()
 
     override fun getViewAt(position: Int): RemoteViews {
-        Log.d("TEST", "getViewAt")
-        Log.d("TEST", "get text from content mananger")
+        Log.d("TEST", "getViewAt $position")
         return SymbolView(context).apply {
             val symbol = itemsCache[position]
             title = symbol.name
