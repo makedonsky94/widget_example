@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.main.view.MainActivity">
+        tools:context=".presentation.view.main.MainActivity">
 
 
     <Button
@@ -35,16 +35,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_hide_widget"/>
 
-
-    <Button
-            android:id="@+id/btn_create_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Set list to widget"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_add_widget"/>
-
     <Button
             android:id="@+id/btn_update"
             android:layout_width="wrap_content"
@@ -52,7 +42,7 @@
             android:text="Update widget"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_create_list"/>
+            app:layout_constraintTop_toBottomOf="@id/btn_add_widget"/>
 
     <Button
             android:id="@+id/btn_notify_data_changed"

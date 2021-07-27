@@ -1,8 +1,9 @@
-package com.tradingview.widgets.presentation.widget.view
+package com.tradingview.widgets.presentation.view.widget
 
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.widget.RemoteViewsService
+import com.tradingview.widgets.presentation.view.widget.WatchlistItemsViewsFactory
 
 class WatchlistWidgetViewsService : RemoteViewsService() {
 

@@ -1,4 +1,4 @@
-package com.tradingview.widgets.presentation.main.view
+package com.tradingview.widgets.presentation.view.main
 
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
@@ -9,13 +9,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import com.tradingview.widgets.R
-import com.tradingview.widgets.core.viewmodel.ViewModelFactory
-import com.tradingview.widgets.presentation.main.viewmodel.WidgetsViewModel
-import com.tradingview.widgets.presentation.widget.view.WatchlistWidgetProvider
-import com.tradingview.widgets.presentation.widget.view.WidgetActions
+import com.tradingview.widgets.presentation.viewmodel.WidgetsViewModel
+import com.tradingview.widgets.presentation.view.widget.WatchlistWidgetProvider
+import com.tradingview.widgets.presentation.view.widget.WidgetActions
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel = ViewModelFactory.provide(WidgetsViewModel::class)
+    private val viewModel = WidgetsViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                     .requestPinAppWidget(
                         ComponentName(this, WatchlistWidgetProvider::class.java),
                         null,
+                        //TODO: call configuration activity here because it will not be opened automatically
                         null
                     )
                 Log.d("TEST", "ableToPin: $ableToPin")
@@ -55,10 +55,6 @@ class MainActivity : AppCompatActivity() {
                 Log.d("TEST", "below android O")
                 //show picker
             }
-        }
-
-        findViewById<Button>(R.id.btn_create_list).setOnClickListener {
-            sendBroadcast(createIntent(WidgetActions.ACTION_CREATE_LIST))
         }
 
         findViewById<Button>(R.id.btn_update).setOnClickListener {

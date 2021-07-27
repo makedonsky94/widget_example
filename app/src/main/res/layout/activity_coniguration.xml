@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.configuration.view.ConfigurationActivity">
+        android:padding="16dp"
+        tools:context=".presentation.view.configuration.ConfigurationActivity">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pick the watchlist for your widget" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/black" />
+
+    <RadioGroup
+            android:id="@+id/configuration_rg_select_watch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    </RadioGroup>
+
+    <Button
+            android:id="@+id/configuration_btn_apply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Watchlist">
+    </Button>
+</LinearLayout>

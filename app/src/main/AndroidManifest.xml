@@ -10,9 +10,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.Widgets">
-        <activity android:name=".presentation.configuration.view.ConfigurationActivity">
+        <activity android:name=".presentation.view.configuration.ConfigurationActivity">
         </activity>
-        <activity android:name=".presentation.main.view.MainActivity">
+        <activity android:name=".presentation.view.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -21,11 +21,11 @@
         </activity>
 
         <service
-                android:name=".presentation.widget.view.WatchlistWidgetViewsService"
+                android:name=".presentation.view.widget.WatchlistWidgetViewsService"
                 android:permission="android.permission.BIND_REMOTEVIEWS"/>
 
         <receiver
-                android:name=".presentation.widget.view.WatchlistWidgetProvider"
+                android:name=".presentation.view.widget.WatchlistWidgetProvider"
                 android:theme="@style/Theme.Widgets">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
